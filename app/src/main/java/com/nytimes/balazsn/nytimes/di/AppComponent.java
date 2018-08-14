@@ -1,6 +1,5 @@
 package com.nytimes.balazsn.nytimes.di;
 
-import com.nytimes.balazsn.nytimes.details.view.DetailActivity;
 import com.nytimes.balazsn.nytimes.list.view.ListActivity;
 import com.nytimes.balazsn.nytimes.splashscreen.view.SplashActivity;
 
@@ -15,6 +14,4 @@ public interface AppComponent {
     void inject(SplashActivity activity);
 
     void inject(ListActivity activity);
-
-    void inject(DetailActivity activity);
 }

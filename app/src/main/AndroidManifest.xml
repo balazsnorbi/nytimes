@@ -27,9 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".list.view.ListActivity" />
-        <activity
-            android:name=".details.view.DetailActivity"
-            android:theme="@style/FullscreenActivity"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.nytimes.balazsn.nytimes.list.view;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -12,11 +13,9 @@ import android.view.MenuItem;
 
 import com.google.gson.Gson;
 import com.nytimes.balazsn.nytimes.common.BaseActivity;
-import com.nytimes.balazsn.nytimes.common.Constants;
 import com.nytimes.balazsn.nytimes.NYTimesApplication;
 import com.nytimes.balazsn.nytimes.R;
 import com.nytimes.balazsn.nytimes.databinding.ActivityListBinding;
-import com.nytimes.balazsn.nytimes.details.view.DetailActivity;
 import com.nytimes.balazsn.nytimes.list.model.ListActivityVM;
 import com.nytimes.balazsn.nytimes.list.NewDataSourceAvailableEvent;
 import com.nytimes.balazsn.nytimes.list.ResultClickedEvent;
@@ -84,10 +83,8 @@ public class ListActivity extends BaseActivity{
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(ResultClickedEvent event) {
-        Bundle bundle = new Bundle();
-        bundle.putString(Constants.RESULT_BUNDLE_KEY, gson.toJson(event.getResult()));
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtras(bundle);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(event.getResult().getUrl()));
         startActivity(intent);
     }
 }
