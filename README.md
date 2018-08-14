@@ -47,4 +47,3 @@ Others:
 ./gradlew clean check assembleRelease
 
 - SonarLint report attached
-- ReadMe attached
